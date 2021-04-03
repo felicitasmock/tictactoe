@@ -1,0 +1,37 @@
+.game-container {}
+
+tr {
+    width: 200px;
+}
+
+td {
+    width: 150px;
+    height: 150px;
+    border: 5px solid black;
+    text-align: center;
+}
+/* fasst die border zusammen, so dass nur noch eine Border da ist */
+table {
+    border-collapse: collapse;
+}
+
+/* Erste Reihe, alle Spalte(n) */
+tr:first-child td {
+   border-top: 0
+}
+/*Letzte Reihe, alle Spalte(n) */
+tr:last-child td{
+    border-bottom: 0;
+} 
+/* Jede Reihe, Erste Spalte */
+tr td:first-child{
+    border-left: 0;
+}
+/* Jede Reihe, letzte Spalte */
+tr td:last-child{
+    border-right: 0;
+}
+
+.hide {
+    display: none;
+}
