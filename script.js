@@ -26,6 +26,7 @@ function showElement() {
         }
     }
     winner();
+    showCurrentPlayer();
 }
 
 //function to declare the winner
@@ -37,32 +38,60 @@ function winner() {
     // the last && is needed to avoid "undefined"
     if (fields[0] == fields[1] && fields[1] == fields[2] && fields[0]){
         winner = fields[0];
+        document.getElementById('line_1').style.transform = 'scaleX(1)';
     }
     if (fields[3] == fields[4] && fields[4] == fields[5]  && fields[3]) {
         winner = fields[3];
+        document.getElementById('line_2').style.transform = 'scaleX(1)';
     }
     if (fields[6] == fields[7] && fields[7] == fields[8]  && fields[6]) {
         winner = fields[6];
+        document.getElementById('line_3').style.transform = 'scaleX(1)';
     }
     if (fields[0] == fields[3] && fields[3] == fields[6]  && fields[0]) {
         winner = fields[0];
+        document.getElementById('line_4').style.transform = 'rotate(90deg) scaleX(1)';
     }
     if (fields[1] == fields[4] && fields[4] == fields[7]  && fields[1]) {
         winner = fields[1];
+        document.getElementById('line_5').style.transform = 'rotate(90deg) scaleX(1)';
     }
     if (fields[2] == fields[5] && fields[5] == fields[8]  && fields[2]) {
         winner = fields[2];
+        document.getElementById('line_6').style.transform = 'rotate(90deg) scaleX(1)';
     }
     if (fields[0] == fields[4] && fields[4] == fields[8]  && fields[0]) {
         winner = fields[0];
+        document.getElementById('line_7').style.transform = 'rotate(45deg) scaleX(1)';
     }
     if (fields[2] == fields[4] && fields[4] == fields[6]  && fields[2]) {
         winner = fields[2];
+        document.getElementById('line_8').style.transform = 'rotate(135deg) scaleX(1)';;
     }
     if (winner) {
         console.log('winner is:', winner);
         console.log('Spieler', currentShape);
+        //generateWinnerScreen()
     }
+    
+}
 
+// function generateWinnerScreen(){
+//     let screen = document.getElementById('endScreen');
+//     screen.classList.remove('hide');
+//     // document.getElementById('endScreen').innerHTML =`
+//     // <div class="inner-end-screen">Player 1 hat gewonnen!</div>
+//     // `;
+// }
 
+// highlights current player
+function showCurrentPlayer() {
+   
+    if (currentShape == 'circle' ) {
+        document.getElementById('player_2').classList.remove('player-inactive');    
+        document.getElementById('player_1').classList.add('player-inactive');     
+    } else {
+        document.getElementById('player_1').classList.remove('player-inactive');    
+        document.getElementById('player_2').classList.add('player-inactive');    
+    }
 }
