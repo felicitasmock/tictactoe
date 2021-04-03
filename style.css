@@ -101,7 +101,7 @@ tr td:last-child {
 }
 
 .make-vertical {
-    transform: rotate(90deg) caleX(0.0);
+    transform: rotate(90deg) scaleX(0.0);
 }
 
 .end-screen {
