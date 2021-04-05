@@ -73,8 +73,11 @@ function winner() {
         winner = fields[2];
         document.getElementById('line_8').style.transform = 'rotate(135deg) scaleX(1)';;
     }
-
-    
+// geht nicht, da "empty" im array mitgezählt wird
+    if (fields.length > 8) {
+        console.log('game over');
+  
+    }
 
     if (winner) {
         console.log('winner is:', winner);
@@ -117,11 +120,11 @@ function showCurrentPlayer() {
 // function to highlight current player
 function showCurrentPlayer(){
     if (currentShape == 'circle') {
-        document.getElementById('player_2').classList.remove('current-player');
-        document.getElementById('player_1').classList.add('current-player');
-    } else {
         document.getElementById('player_1').classList.remove('current-player');
         document.getElementById('player_2').classList.add('current-player');
+    } else {
+        document.getElementById('player_2').classList.remove('current-player');
+        document.getElementById('player_1').classList.add('current-player');
     }
 }
 
@@ -131,7 +134,9 @@ function replayGame() {
     document.getElementById('endScreen').classList.add('hide'); // removes endScreen
     gameOver = false; // set variable back to false
     fields = []; // empties array
-    currentShape = 'cross'; // sets current Shpae / Player back to start
+    currentShape = 'cross'; // sets current Shape / Player back to start
+    document.getElementById('player_2').classList.remove('current-player');
+    document.getElementById('player_1').classList.add('current-player');
     
     for (let i = 1; i < 9; i++) { // removes (hides) winner line
         document.getElementById('line_' + i).classList.add('hide');        
