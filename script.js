@@ -77,12 +77,15 @@ function winner() {
 }
 
 function generateWinnerScreen() {
-    let screen = document.getElementById('endScreen');
-    screen.classList.remove('hide');
+   // let screen = document.getElementById('endScreen');
+    //screen.classList.remove('hide');
 
 
     document.getElementById('endScreen').innerHTML =`
+    <div class="end-screen">
      <div class="inner-end-screen">Player 1 hat gewonnen!</div>
+     <button onClick="replayGame()">Nochmal spielen<button>
+     </div>
     `;
 }
 
@@ -96,4 +99,11 @@ function showCurrentPlayer() {
         document.getElementById('player_1').classList.remove('player-inactive');
         document.getElementById('player_2').classList.add('player-inactive');
     }
+}
+
+//replay game
+function replayGame(){
+    return document.getElementById('endScreen').innerHTML = ''; // removes endScreen
+    currentShape = 'cross'; // sets current Shpae / Player back to start
+    fields = [];
 }
