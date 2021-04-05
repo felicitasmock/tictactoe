@@ -73,6 +73,9 @@ function winner() {
         winner = fields[2];
         document.getElementById('line_8').style.transform = 'rotate(135deg) scaleX(1)';;
     }
+
+    
+
     if (winner) {
         console.log('winner is:', winner);
         console.log('Spieler', currentShape);
@@ -110,6 +113,18 @@ function showCurrentPlayer() {
     }
 }
 */
+
+// function to highlight current player
+function showCurrentPlayer(){
+    if (currentShape == 'circle') {
+        document.getElementById('player_2').classList.remove('current-player');
+        document.getElementById('player_1').classList.add('current-player');
+    } else {
+        document.getElementById('player_1').classList.remove('current-player');
+        document.getElementById('player_2').classList.add('current-player');
+    }
+}
+
 
 //replay game
 function replayGame() {

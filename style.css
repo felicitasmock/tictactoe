@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: slategrey;
+    background-color: rgba(112, 128, 144, 0.94);
 }
 
 .game-container {
@@ -79,11 +79,12 @@ tr td:last-child {
     display: flex;
     align-items: center;
     padding: 10px;
+    font-weight: bold;
 }
 
 .current-player {
-    background-color: rgba(134, 221, 75, 0.493);
-    font-weight: bold;
+    color: rgb(134, 221, 75);
+    /* font-weight: bold; */
     border-radius: 50px;
 }
 
