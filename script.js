@@ -1,16 +1,22 @@
 let fields = []; // emtpy array- will be filled with click
-
+let gameOver = false; // variable for end of game
 let currentShape = 'cross'; // defines variable, start: 'cross'
 
 function fillShape(id) {
-    if (currentShape == 'cross') { // if onclick the value of currentShape ist 'cross'
-        currentShape = 'circle'; // change it into 'circle'
-    } else {
-        currentShape = 'cross' // else change it into 'cross'
+    if (!fields[id] && !gameOver) { // if get fields at position i is empty; its undefine && game is not overOver is true then don't do function 
+        //! -> negiert (macht das Gegenteil) - wird benötigt, weil das allererste Feld leer ist
+        // function wird nur ausgeführt, wenn unser feld noch nicht gefüllt ist, damit das gleiceh Feld nicht zwei mal gefüllt wird
+        if (currentShape == 'cross') { // if onclick the value of currentShape ist 'cross'
+            currentShape = 'circle'; // change it into 'circle'
+        } else {
+            currentShape = 'cross' // else change it into 'cross'
+        }
+        fields[id] = currentShape; // adds 'currentShape' to array at postion clicked
+        console.log(fields);
+        showElement(); // call function
+        winner();
+        showCurrentPlayer();
     }
-    fields[id] = currentShape; // adds 'currentShape' to array at postion clicked
-    console.log(fields);
-    showElement(); // call function
 }
 
 // function to show img
@@ -18,15 +24,14 @@ function showElement() {
     for (let i = 0; i < fields.length; i++) {
         if (fields[i] == 'circle') { // if in array at position i is 'circle'
             document.getElementById('circle_' + i).classList.remove('hide'); // show circle - remove class hide
-            document.getElementById('field_' + i).classList.add('disabled'); // disables field, so that it cannot be clicked again
+            //document.getElementById('field_' + i).classList.add('disabled'); // disables field, so that it cannot be clicked again
         }
         if (fields[i] == 'cross') { // if in array at position i is 'cross'
             document.getElementById('cross_' + i).classList.remove('hide'); // show cross - remove class hide
-            document.getElementById('field_' + i).classList.add('disabled'); // disables field, so that it cannot be clicked again
+            //document.getElementById('field_' + i).classList.add('disabled'); // disables field, so that it cannot be clicked again
         }
     }
-    winner();
-    showCurrentPlayer();
+   
 }
 
 //function to declare the winner
@@ -71,25 +76,29 @@ function winner() {
     if (winner) {
         console.log('winner is:', winner);
         console.log('Spieler', currentShape);
-        generateWinnerScreen()
+        gameOver = true; // set variable to true, so that in function fillShape will executed
+        if (winner == 'circle') { // if variable winner = circle than Player 1
+           winner = 'Player 1';
+        } else {
+            winner = 'Player 2'; // if variable  winner = cross than Player 2
+        }
+        document.getElementById('winnerName').innerHTML = `<b>${winner}</b> hat gewonnen!`
+       generateWinnerScreen()
     }
 
 }
 
+// show winner screen
 function generateWinnerScreen() {
-   // let screen = document.getElementById('endScreen');
-    //screen.classList.remove('hide');
-
-
-    document.getElementById('endScreen').innerHTML =`
-    <div class="end-screen">
-     <div class="inner-end-screen">Player 1 hat gewonnen!</div>
-     <button onClick="replayGame()">Nochmal spielen<button>
-     </div>
-    `;
+    setTimeout( function() {
+        document.getElementById('endScreen').classList.remove('hide');
+    }, 1000);
 }
 
-// highlights current player
+
+
+/*
+// greys out inactive player
 function showCurrentPlayer() {
 
     if (currentShape == 'circle') {
@@ -100,10 +109,21 @@ function showCurrentPlayer() {
         document.getElementById('player_2').classList.add('player-inactive');
     }
 }
+*/
 
 //replay game
-function replayGame(){
-    return document.getElementById('endScreen').innerHTML = ''; // removes endScreen
+function replayGame() {
+    document.getElementById('endScreen').classList.add('hide'); // removes endScreen
+    gameOver = false; // set variable back to false
+    fields = []; // empties array
     currentShape = 'cross'; // sets current Shpae / Player back to start
-    fields = [];
+    
+    for (let i = 1; i < 9; i++) { // removes (hides) winner line
+        document.getElementById('line_' + i).classList.add('hide');        
+    }
+    for (let i = 0; i < 9; i++) { // removes (hides) cross and circle
+        document.getElementById('circle_' + i).classList.add('hide');  
+        document.getElementById('cross_' + i).classList.add('hide');    
+    }
+    
 }
