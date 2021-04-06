@@ -183,3 +183,15 @@ tr td:last-child {
     cursor: pointer;
     background-color: rgb(68, 67, 71);
 }
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.footer a {
+    color: rgb(26, 26, 88);
+}
