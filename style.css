@@ -150,7 +150,7 @@ tr td:last-child {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-image: url(/img/konfetti.jpg);
+    background-image: url(img/konfetti.jpg);
     background-size: cover;
     animation: zoomIn 425ms ease-in-out;
 }
@@ -194,4 +194,37 @@ tr td:last-child {
 
 .footer a {
     color: rgb(26, 26, 88);
+}
+
+@media(max-width: 650px) {
+    body {
+        overflow: hidden;
+    }
+    .shape {
+        width: 80px;
+        height: 80px;
+    }
+    tr {
+        width: 150px;
+    }
+    td {
+        width: 110px;
+        height: 110px;
+        border: 5px solid black;
+        text-align: center;
+        cursor: pointer;
+    }
+    .game-container{
+        width: 100%;
+    }
+    .end-screen {
+        width:100%
+    }
+    .end-screen-center{
+        width:100%;
+    }
+    .inner-end-screen{
+        width: 250px;
+        text-align: center;
+    }
 }
