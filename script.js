@@ -137,10 +137,18 @@ function replayGame() {
     currentShape = 'cross'; // sets current Shape / Player back to start
     document.getElementById('player_2').classList.remove('current-player');
     document.getElementById('player_1').classList.add('current-player');
-    
+
+    // sets transformation of winner lines back to 0
+    for (let i = 1; i < 9; i++) {
+    document.getElementById('line_' + i).style.transform = 'scaleX(0)';
+    }
+
+   /* 
     for (let i = 1; i < 9; i++) { // removes (hides) winner line
         document.getElementById('line_' + i).classList.add('hide');        
     }
+    */
+
     for (let i = 0; i < 9; i++) { // removes (hides) cross and circle
         document.getElementById('circle_' + i).classList.add('hide');  
         document.getElementById('cross_' + i).classList.add('hide');    
