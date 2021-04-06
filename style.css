@@ -107,6 +107,40 @@ tr td:last-child {
     z-index: 1;
 }
 
+.winner-line-1 {
+    top: 185px;
+}
+
+.winner-line-2 {
+    top: 340px;
+}
+
+.winner-line-3 {
+    top: 500px;
+}
+
+.winner-line-4 {
+    top: 340px;
+    left: 40px;
+}
+
+.winner-line-5 {
+    top: 340px;
+}
+
+.winner-line-6 {
+    top: 340px;
+    left: 355px;
+}
+
+.winner-line-7 {
+    top: 340px;
+}
+
+.winner-line-8 {
+    top: 340px;
+}
+
 .make-vertical {
     transform: rotate(90deg) scaleX(0.0);
 }
@@ -214,17 +248,41 @@ tr td:last-child {
         text-align: center;
         cursor: pointer;
     }
-    .game-container{
+    .game-container {
         width: 100%;
     }
-    .end-screen {
-        width:100%
-    }
-    .end-screen-center{
-        width:100%;
-    }
-    .inner-end-screen{
+    .inner-end-screen {
         width: 250px;
         text-align: center;
+    }
+    .winner-line {
+        height: 5px;
+        width: 340px;
+    }
+    .winner-line-1 {
+        top: 165px;
+    }
+    .winner-line-2 {
+        top: 280px;
+    }
+    .winner-line-3 {
+        top: 400px;
+    }
+    .winner-line-4 {
+        top: 280px;
+        left: -100px;
+    }
+    .winner-line-5 {
+        top: 300px;
+    }
+    .winner-line-6 {
+        top: 280px;
+        left: 135px;
+    }
+    .winner-line-7 {
+        top: 280px;
+    }
+    .winner-line-8 {
+        top: 280px;
     }
 }

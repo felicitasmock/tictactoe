@@ -31,11 +31,10 @@ function showElement() {
             //document.getElementById('field_' + i).classList.add('disabled'); // disables field, so that it cannot be clicked again
         }
     }
-   
+
 }
 
 //function to declare the winner
-
 function winner() {
     let winner; // defines varible of winner
     // if in field 0 is the same (==) as in field 1 AND (&&) in field 1 is the same (==) as in field 2 
@@ -73,10 +72,11 @@ function winner() {
         winner = fields[2];
         document.getElementById('line_8').style.transform = 'rotate(135deg) scaleX(1)';;
     }
-// geht nicht, da "empty" im array mitgezählt wird
+
+    // geht nicht, da "empty" im array mitgezählt wird
     if (fields.length > 8) {
         console.log('game over');
-  
+
     }
 
     if (winner) {
@@ -84,19 +84,19 @@ function winner() {
         console.log('Spieler', currentShape);
         gameOver = true; // set variable to true, so that in function fillShape will executed
         if (winner == 'circle') { // if variable winner = circle than Player 1
-           winner = 'Player 1';
+            winner = 'Player 1';
         } else {
             winner = 'Player 2'; // if variable  winner = cross than Player 2
         }
         document.getElementById('winnerName').innerHTML = `<b>${winner}</b> hat gewonnen!`
-       generateWinnerScreen()
+        generateWinnerScreen()
     }
 
 }
 
 // show winner screen
 function generateWinnerScreen() {
-    setTimeout( function() {
+    setTimeout(function () {
         document.getElementById('endScreen').classList.remove('hide');
     }, 1000);
 }
@@ -118,7 +118,7 @@ function showCurrentPlayer() {
 */
 
 // function to highlight current player
-function showCurrentPlayer(){
+function showCurrentPlayer() {
     if (currentShape == 'circle') {
         document.getElementById('player_1').classList.remove('current-player');
         document.getElementById('player_2').classList.add('current-player');
@@ -140,18 +140,18 @@ function replayGame() {
 
     // sets transformation of winner lines back to 0
     for (let i = 1; i < 9; i++) {
-    document.getElementById('line_' + i).style.transform = 'scaleX(0)';
+        document.getElementById('line_' + i).style.transform = 'scaleX(0)';
     }
 
-   /* 
-    for (let i = 1; i < 9; i++) { // removes (hides) winner line
-        document.getElementById('line_' + i).classList.add('hide');        
-    }
-    */
+    /* 
+     for (let i = 1; i < 9; i++) { // removes (hides) winner line
+         document.getElementById('line_' + i).classList.add('hide');        
+     }
+     */
 
     for (let i = 0; i < 9; i++) { // removes (hides) cross and circle
-        document.getElementById('circle_' + i).classList.add('hide');  
-        document.getElementById('cross_' + i).classList.add('hide');    
+        document.getElementById('circle_' + i).classList.add('hide');
+        document.getElementById('cross_' + i).classList.add('hide');
     }
-    
+
 }
