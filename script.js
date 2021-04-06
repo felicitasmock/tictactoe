@@ -73,9 +73,10 @@ function winner() {
         document.getElementById('line_8').style.transform = 'rotate(135deg) scaleX(1)';;
     }
 
-    // geht nicht, da "empty" im array mitgezählt wird
-    if (fields.length > 8) {
-        console.log('game over');
+    // game over if all fields are filled out and there is no winner
+    let len = fields.filter(Boolean).length;
+    if (len === 9) {
+        console.log('game over', len);
 
     }
 
@@ -91,6 +92,7 @@ function winner() {
         document.getElementById('winnerName').innerHTML = `<b>${winner}</b> hat gewonnen!`
         generateWinnerScreen()
     }
+
 
 }
 
