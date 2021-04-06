@@ -76,10 +76,15 @@ function winner() {
     // game over if all fields are filled out and there is no winner
     let len = fields.filter(Boolean).length;
     if (len === 9) {
-        console.log('game over', len);
-
+    console.log('game over', len);
+       document.getElementById('innerEndScreen').innerHTML = `
+       <div class="game-over">
+        <div class="winner-name"></div>
+        <button class="replay-btn" onClick="replayGame()">Nochmal spielen</button>
+        </div>`;
+       generateGameOver();
     }
-
+    // if there is a winner
     if (winner) {
         console.log('winner is:', winner);
         console.log('Spieler', currentShape);
@@ -89,20 +94,32 @@ function winner() {
         } else {
             winner = 'Player 2'; // if variable  winner = cross than Player 2
         }
-        document.getElementById('winnerName').innerHTML = `<b>${winner}</b> hat gewonnen!`
+       // document.getElementById('winnerName').innerHTML = `<b>${winner}</b> hat gewonnen!`
+        document.getElementById('innerEndScreen').innerHTML = `
+        <div class="winner-screen">
+                <div class="winner-name" id="winnerName"><b>${winner}</b> hat gewonnen!</div>
+                <button class="replay-btn" onClick="replayGame()">Nochmal spielen</button>
+        <div>
+               `;
+
         generateWinnerScreen()
     }
 
 
 }
 
-// show winner screen
+// generate winner screen
 function generateWinnerScreen() {
     setTimeout(function () {
         document.getElementById('endScreen').classList.remove('hide');
     }, 1000);
 }
-
+// generate game over screen
+function generateGameOver() {
+    setTimeout(function () {
+        document.getElementById('endScreen').classList.remove('hide');
+    }, 1000); 
+}
 
 
 /*

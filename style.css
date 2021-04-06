@@ -177,6 +177,11 @@ tr td:last-child {
 .inner-end-screen {
     width: 400px;
     height: 200px;
+}
+
+.winner-screen{
+    width: 400px;
+    height: 200px;
     background-color: whitesmoke;
     border-radius: 10px;
     padding: 20px;
@@ -184,11 +189,23 @@ tr td:last-child {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    animation: zoomIn 425ms ease-in-out;
     background-image: url(img/konfetti.jpg);
     background-size: cover;
-    animation: zoomIn 425ms ease-in-out;
 }
-
+.game-over{
+    background-image: url(img/gameover.jpg);
+    background-size: cover;
+    height: 200px;
+    background-position: top;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    align-items: center;
+}
 .end-screen-img {
     width: 100%;
     height: 200px;
@@ -208,14 +225,14 @@ tr td:last-child {
     background-color: turquoise;
     border-radius: 5px;
     width: 180px;
-    margin: 20px;
+    /* margin: 20px; */
     padding: 20px;
-    box-shadow: 1px 1px 15px 6px;
+    box-shadow: gray 1px 1px 4px 1px;
 }
 
 .replay-btn:hover {
     cursor: pointer;
-    background-color: rgb(68, 67, 71);
+    background-color: rgb(134, 133, 138);
 }
 
 .footer {
@@ -252,8 +269,18 @@ tr td:last-child {
         width: 100%;
     }
     .inner-end-screen {
-        width: 250px;
+        width: 350px;
+        height: unset;
         text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .winner-screen{
+        width: 350px;
+    }
+    .game-over {
+        width: 350px;
     }
     .winner-line {
         height: 5px;
