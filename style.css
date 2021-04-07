@@ -29,7 +29,13 @@ td:hover {
 
 table {
     border-collapse: collapse;
+}
+
+.line-container {
     margin-top: 30px;
+    width: 466px;
+    height: 466px;
+    position: relative;
 }
 
 /* Erste Reihe, alle Spalte(n) */
@@ -98,7 +104,7 @@ tr td:last-child {
 }
 
 .winner-line {
-    height: 10px;
+    height: 6px;
     background-color: rgb(8, 199, 40);
     width: 400px;
     position: absolute;
@@ -108,37 +114,43 @@ tr td:last-child {
 }
 
 .winner-line-1 {
-    top: 185px;
+    top: 70px;
+    left: 30px;
 }
 
 .winner-line-2 {
-    top: 340px;
+    top: 230px;
+    left: 30px;
 }
 
 .winner-line-3 {
-    top: 500px;
+    top: 390px;
+    left: 30px;
 }
 
 .winner-line-4 {
-    top: 340px;
-    left: 40px;
+    top: 230px;
+    left: -125px;
 }
 
 .winner-line-5 {
-    top: 340px;
+    top: 230px;
+    left: 35px;
 }
 
 .winner-line-6 {
-    top: 340px;
-    left: 355px;
+    top: 230px;
+    left: 190px;
 }
 
 .winner-line-7 {
-    top: 340px;
+    top: 230px;
+    left: 30px;
 }
 
 .winner-line-8 {
-    top: 340px;
+    top: 230px;
+    left: 30px;
 }
 
 .make-vertical {
@@ -179,7 +191,7 @@ tr td:last-child {
     height: 200px;
 }
 
-.winner-screen{
+.winner-screen {
     width: 400px;
     height: 200px;
     background-color: whitesmoke;
@@ -193,7 +205,8 @@ tr td:last-child {
     background-image: url(img/konfetti.jpg);
     background-size: cover;
 }
-.game-over{
+
+.game-over {
     background-image: url(img/gameover.jpg);
     background-size: cover;
     height: 200px;
@@ -206,6 +219,7 @@ tr td:last-child {
     /* justify-content: space-evenly; */
     align-items: center;
 }
+
 .end-screen-img {
     width: 100%;
     height: 200px;
@@ -255,6 +269,9 @@ tr td:last-child {
         width: 80px;
         height: 80px;
     }
+    .line-container{
+        width: unset;
+    }
     tr {
         width: 150px;
     }
@@ -275,8 +292,7 @@ tr td:last-child {
         display: flex;
         justify-content: center;
     }
-
-    .winner-screen{
+    .winner-screen {
         width: 350px;
     }
     .game-over {
@@ -284,32 +300,34 @@ tr td:last-child {
     }
     .winner-line {
         height: 5px;
-        width: 340px;
+        width: 280px;
     }
     .winner-line-1 {
-        top: 165px;
+        top: 50px;
     }
     .winner-line-2 {
-        top: 280px;
+        top: 170px;
     }
     .winner-line-3 {
-        top: 400px;
+        top: 280px;
     }
     .winner-line-4 {
-        top: 280px;
-        left: -100px;
+        top: 170px;
+        left: -85px;
     }
     .winner-line-5 {
-        top: 300px;
+        top: 170px;
     }
     .winner-line-6 {
-        top: 280px;
-        left: 135px;
+        top: 170px;
+        left: 150px;
     }
     .winner-line-7 {
-        top: 280px;
+        top: 170px;
+        left: 30px;
     }
     .winner-line-8 {
-        top: 280px;
+        top: 170px;
+        left: 30px;
     }
 }
