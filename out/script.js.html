@@ -1,4 +1,32 @@
-let fields = []; // emtpy array- will be filled with click
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let fields = []; // emtpy array- will be filled with click
 let gameOver = false; // variable for end of game
 let currentShape = 'cross'; // defines variable, start: 'cross'
 
@@ -7,7 +35,7 @@ let currentShape = 'cross'; // defines variable, start: 'cross'
  * @param {string} id - This functions fills shape with cross or circle 
  */
 function fillShape(id) {
-    if (!fields[id] && !gameOver) { // if get fields at position i is empty; its undefine && game is not overOver is true then don't do function 
+    if (!fields[id] &amp;&amp; !gameOver) { // if get fields at position i is empty; its undefine &amp;&amp; game is not overOver is true then don't do function 
         //! -> negiert (macht das Gegenteil) - wird benötigt, weil das allererste Feld leer ist
         // function wird nur ausgeführt, wenn unser feld noch nicht gefüllt ist, damit das gleiceh Feld nicht zwei mal gefüllt wird
         if (currentShape == 'cross') { // if onclick the value of currentShape ist 'cross'
@@ -25,7 +53,7 @@ function fillShape(id) {
 
 // function to show img
 function showElement() {
-    for (let i = 0; i < fields.length; i++) {
+    for (let i = 0; i &lt; fields.length; i++) {
         if (fields[i] == 'circle') { // if in array at position i is 'circle'
             document.getElementById('circle_' + i).classList.remove('hide'); // show circle - remove class hide
             //document.getElementById('field_' + i).classList.add('disabled'); // disables field, so that it cannot be clicked again
@@ -41,38 +69,38 @@ function showElement() {
 //function to declare the winner
 function winner() {
     let winner; // defines varible of winner
-    // if in field 0 is the same (==) as in field 1 AND (&&) in field 1 is the same (==) as in field 2 
-    // AND (&&) in field 2 is the same (==) as in field 0
-    // the last && is needed to avoid "undefined"
-    if (fields[0] == fields[1] && fields[1] == fields[2] && fields[0]) {
+    // if in field 0 is the same (==) as in field 1 AND (&amp;&amp;) in field 1 is the same (==) as in field 2 
+    // AND (&amp;&amp;) in field 2 is the same (==) as in field 0
+    // the last &amp;&amp; is needed to avoid "undefined"
+    if (fields[0] == fields[1] &amp;&amp; fields[1] == fields[2] &amp;&amp; fields[0]) {
         winner = fields[0];
         document.getElementById('line_1').style.transform = 'scaleX(1)';
     }
-    if (fields[3] == fields[4] && fields[4] == fields[5] && fields[3]) {
+    if (fields[3] == fields[4] &amp;&amp; fields[4] == fields[5] &amp;&amp; fields[3]) {
         winner = fields[3];
         document.getElementById('line_2').style.transform = 'scaleX(1)';
     }
-    if (fields[6] == fields[7] && fields[7] == fields[8] && fields[6]) {
+    if (fields[6] == fields[7] &amp;&amp; fields[7] == fields[8] &amp;&amp; fields[6]) {
         winner = fields[6];
         document.getElementById('line_3').style.transform = 'scaleX(1)';
     }
-    if (fields[0] == fields[3] && fields[3] == fields[6] && fields[0]) {
+    if (fields[0] == fields[3] &amp;&amp; fields[3] == fields[6] &amp;&amp; fields[0]) {
         winner = fields[0];
         document.getElementById('line_4').style.transform = 'rotate(90deg) scaleX(1)';
     }
-    if (fields[1] == fields[4] && fields[4] == fields[7] && fields[1]) {
+    if (fields[1] == fields[4] &amp;&amp; fields[4] == fields[7] &amp;&amp; fields[1]) {
         winner = fields[1];
         document.getElementById('line_5').style.transform = 'rotate(90deg) scaleX(1)';
     }
-    if (fields[2] == fields[5] && fields[5] == fields[8] && fields[2]) {
+    if (fields[2] == fields[5] &amp;&amp; fields[5] == fields[8] &amp;&amp; fields[2]) {
         winner = fields[2];
         document.getElementById('line_6').style.transform = 'rotate(90deg) scaleX(1)';
     }
-    if (fields[0] == fields[4] && fields[4] == fields[8] && fields[0]) {
+    if (fields[0] == fields[4] &amp;&amp; fields[4] == fields[8] &amp;&amp; fields[0]) {
         winner = fields[0];
         document.getElementById('line_7').style.transform = 'rotate(45deg) scaleX(1)';
     }
-    if (fields[2] == fields[4] && fields[4] == fields[6] && fields[2]) {
+    if (fields[2] == fields[4] &amp;&amp; fields[4] == fields[6] &amp;&amp; fields[2]) {
         winner = fields[2];
         document.getElementById('line_8').style.transform = 'rotate(135deg) scaleX(1)';;
     }
@@ -82,10 +110,10 @@ function winner() {
     if (len === 9) {
     console.log('game over', len);
        document.getElementById('innerEndScreen').innerHTML = `
-       <div class="game-over">
-        <div class="winner-name"></div>
-        <button class="replay-btn" onClick="replayGame()">Nochmal spielen</button>
-        </div>`;
+       &lt;div class="game-over">
+        &lt;div class="winner-name">&lt;/div>
+        &lt;button class="replay-btn" onClick="replayGame()">Nochmal spielen&lt;/button>
+        &lt;/div>`;
        generateGameOver();
     }
     // if there is a winner
@@ -98,12 +126,12 @@ function winner() {
         } else {
             winner = 'Player 2'; // if variable  winner = cross than Player 2
         }
-       // document.getElementById('winnerName').innerHTML = `<b>${winner}</b> hat gewonnen!`
+       // document.getElementById('winnerName').innerHTML = `&lt;b>${winner}&lt;/b> hat gewonnen!`
         document.getElementById('innerEndScreen').innerHTML = `
-        <div class="winner-screen">
-                <div class="winner-name" id="winnerName"><b>${winner}</b> hat gewonnen!</div>
-                <button class="replay-btn" onClick="replayGame()">Nochmal spielen</button>
-        <div>
+        &lt;div class="winner-screen">
+                &lt;div class="winner-name" id="winnerName">&lt;b>${winner}&lt;/b> hat gewonnen!&lt;/div>
+                &lt;button class="replay-btn" onClick="replayGame()">Nochmal spielen&lt;/button>
+        &lt;div>
                `;
 
         generateWinnerScreen()
@@ -163,19 +191,42 @@ function replayGame() {
     document.getElementById('player_1').classList.add('current-player');
 
     // sets transformation of winner lines back to 0
-    for (let i = 1; i < 9; i++) {
+    for (let i = 1; i &lt; 9; i++) {
         document.getElementById('line_' + i).style.transform = 'scaleX(0)';
     }
 
     /* 
-     for (let i = 1; i < 9; i++) { // removes (hides) winner line
+     for (let i = 1; i &lt; 9; i++) { // removes (hides) winner line
          document.getElementById('line_' + i).classList.add('hide');        
      }
      */
 
-    for (let i = 0; i < 9; i++) { // removes (hides) cross and circle
+    for (let i = 0; i &lt; 9; i++) { // removes (hides) cross and circle
         document.getElementById('circle_' + i).classList.add('hide');
         document.getElementById('cross_' + i).classList.add('hide');
     }
 
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#fillShape">fillShape</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue Apr 13 2021 20:11:01 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
